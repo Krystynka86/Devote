@@ -12,7 +12,7 @@ struct ContentView: View {
     // MARK: - PROPERTY
     
     @State var task: String = ""
-    @State private var showNewTaskItemView: Bool = false
+    @State private var showNewTaskItem: Bool = false
     
     // MARK: - FETCHING DATA
     @Environment(\.managedObjectContext) private var viewContext
@@ -50,7 +50,7 @@ struct ContentView: View {
                     // MARK: - NEW TASK BUTTON
                     
                     Button(action: {
-                        showNewTaskItemView = true
+                        showNewTaskItem = true
                     }, label: {
                         Image(systemName: "plus.circle")
                             .font(.system(size: 30, weight: .semibold, design: .rounded))
@@ -93,8 +93,15 @@ struct ContentView: View {
                 
                 // MARK: - NEW TASK ITEM
                 
-                if showNewTaskItemView {
-                    NewTaskItemView()
+                if showNewTaskItem { // nice visual effect
+                BlankView()
+                        .onTapGesture {
+                            withAnimation {
+                                showNewTaskItem = false
+                            }
+                        }
+                    
+                    NewTaskItemView(isShowing: $showNewTaskItem)
                 }
                 
             } //: ZSTACK
