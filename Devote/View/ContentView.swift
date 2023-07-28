@@ -119,6 +119,7 @@ struct ContentView: View {
                     EditButton()
                   }
             } //: TOOLBAR
+            .background(BackgroundImageView())
             .background(
             backgroundGradient.ignoresSafeArea()
             )
