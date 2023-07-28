@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B06F94F2A73B379008EBAC8 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B06F94D2A73B379008EBAC8 /* Item+CoreDataClass.swift */; };
+		6B06F9502A73B379008EBAC8 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B06F94E2A73B379008EBAC8 /* Item+CoreDataProperties.swift */; };
 		6BFE6BBB2A72FBE2006DA9CB /* DevoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE6BBA2A72FBE2006DA9CB /* DevoteApp.swift */; };
 		6BFE6BBD2A72FBE2006DA9CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE6BBC2A72FBE2006DA9CB /* ContentView.swift */; };
 		6BFE6BBF2A72FBE2006DA9CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BFE6BBE2A72FBE2006DA9CB /* Assets.xcassets */; };
@@ -19,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B06F94D2A73B379008EBAC8 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6B06F94E2A73B379008EBAC8 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6B9C3A3D2A730530001B480C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6BFE6BB72A72FBE1006DA9CB /* Devote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Devote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFE6BBA2A72FBE2006DA9CB /* DevoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevoteApp.swift; sourceTree = "<group>"; };
 		6BFE6BBC2A72FBE2006DA9CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +88,8 @@
 		6BFE6BAE2A72FBE1006DA9CB = {
 			isa = PBXGroup;
 			children = (
+				6B06F94D2A73B379008EBAC8 /* Item+CoreDataClass.swift */,
+				6B06F94E2A73B379008EBAC8 /* Item+CoreDataProperties.swift */,
 				6BFE6BB92A72FBE1006DA9CB /* Devote */,
 				6BFE6BB82A72FBE1006DA9CB /* Products */,
 			);
@@ -99,6 +106,7 @@
 		6BFE6BB92A72FBE1006DA9CB /* Devote */ = {
 			isa = PBXGroup;
 			children = (
+				6B9C3A3D2A730530001B480C /* Info.plist */,
 				6B9C3A3B2A7303F5001B480C /* Style */,
 				6B9C3A3A2A7303DB001B480C /* Utility */,
 				6B9C3A392A7303BD001B480C /* Extension */,
@@ -203,6 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B06F9502A73B379008EBAC8 /* Item+CoreDataProperties.swift in Sources */,
+				6B06F94F2A73B379008EBAC8 /* Item+CoreDataClass.swift in Sources */,
 				6BFE6BC42A72FBE3006DA9CB /* Persistence.swift in Sources */,
 				6BFE6BBD2A72FBE2006DA9CB /* ContentView.swift in Sources */,
 				6BFE6BC72A72FBE3006DA9CB /* Devote.xcdatamodeld in Sources */,
@@ -338,11 +348,11 @@
 				DEVELOPMENT_TEAM = UXC7U9N9AB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Devote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,11 +377,11 @@
 				DEVELOPMENT_TEAM = UXC7U9N9AB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Devote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
