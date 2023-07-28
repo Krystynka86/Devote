@@ -40,6 +40,9 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+            
+            task = ""
+            hideKeyboard()
         }
     }
 
@@ -60,63 +63,65 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                VStack(spacing: 16) {
-                  TextField("New Task", text: $task)
-                        .padding()
-                        .background(
-                            Color(UIColor.systemGray6)
-                        )
-                        .cornerRadius(10)
+            ZStack {
+                VStack {
+                    VStack(spacing: 16) {
+                      TextField("New Task", text: $task)
+                            .padding()
+                            .background(
+                                Color(UIColor.systemGray6)
+                            )
+                            .cornerRadius(10)
+                        
+                    Button(action: {
+                        addItem()
+                    }, label: {
+                        Spacer()
+                        Text("SAVE")
+                        Spacer()
+                    })
+                    .disabled(isButtonDisabled)
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .background(isButtonDisabled ? Color.gray : Color.pink)
+                    .cornerRadius(10)
+                    } //: VSTACK
+                    .padding()
                     
-                Button(action: {
-                    addItem()
-                }, label: {
-                    Spacer()
-                    Text("SAVE")
-                    Spacer()
-                })
-                .disabled(isButtonDisabled)
-                .padding()
-                .font(.headline)
-                .foregroundColor(.white)
-                .background(isButtonDisabled ? Color.gray : Color.pink)
-                .cornerRadius(10)
+                    List {
+                        ForEach(items) { item in
+                            //NavigationLink {
+                                VStack(alignment: .leading) {
+                                    Text(item.task ?? "")
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                    
+                                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
+                                } //: LIST ITEM
+                            //} label: {
+                                //Text(item.timestamp!, formatter: itemFormatter)
+                            //}
+                        }
+                        .onDelete(perform: deleteItems)
+                    } //: LIST
                 } //: VSTACK
-                .padding()
                 
-                List {
-                    ForEach(items) { item in
-                        //NavigationLink {
-                            VStack(alignment: .leading) {
-                                Text(item.task ?? "")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                
-                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                                    .font(.footnote)
-                                    .foregroundColor(.gray)
-                            } //: LIST ITEM
-                        //} label: {
-                            //Text(item.timestamp!, formatter: itemFormatter)
-                        //}
-                    }
-                    .onDelete(perform: deleteItems)
-                } //: LIST
-            } //: VSTACK
+            } //: ZSTACK
+            .navigationBarTitle("Daily Tasks", displayMode: .large)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+                  }
             } //: TOOLBAR
-        } //: NAVIGATION
+            .background(backgroundGradient)
+            } //: NAVIGATION
+        .navigationViewStyle(StackNavigationViewStyle()) // support for Ipads, shows only one column at a time
+        }
      }
-}
+
 
 // MARK: - PREVIEW
 
