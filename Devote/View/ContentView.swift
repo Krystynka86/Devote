@@ -91,7 +91,7 @@ struct ContentView: View {
                     
                     List {
                         ForEach(items) { item in
-                            //NavigationLink {
+                    
                                 VStack(alignment: .leading) {
                                     Text(item.task ?? "")
                                         .font(.headline)
@@ -101,22 +101,27 @@ struct ContentView: View {
                                         .font(.footnote)
                                         .foregroundColor(.gray)
                                 } //: LIST ITEM
-                            //} label: {
-                                //Text(item.timestamp!, formatter: itemFormatter)
-                            //}
                         }
                         .onDelete(perform: deleteItems)
                     } //: LIST
+                    .listStyle(InsetGroupedListStyle())
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
+                    .padding(.vertical, 0)
+                    .frame(maxWidth: 640) // for iPads
                 } //: VSTACK
-                
             } //: ZSTACK
+            .onAppear() {
+                UITableView.appearance().backgroundColor = UIColor.clear // removes the default background color - not working in iOS 16
+            }
             .navigationBarTitle("Daily Tasks", displayMode: .large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                   }
             } //: TOOLBAR
-            .background(backgroundGradient)
+            .background(
+            backgroundGradient.ignoresSafeArea()
+            )
             } //: NAVIGATION
         .navigationViewStyle(StackNavigationViewStyle()) // support for Ipads, shows only one column at a time
         }
