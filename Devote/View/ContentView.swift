@@ -109,11 +109,7 @@ struct ContentView: View {
                 UITableView.appearance().backgroundColor = UIColor.clear // removes the default background color - not working in iOS 16
             }
             .navigationBarTitle("Daily Tasks", displayMode: .large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                  }
-            } //: TOOLBAR
+            .navigationBarHidden(true)
             .background(BackgroundImageView())
             .background(
             backgroundGradient.ignoresSafeArea()
