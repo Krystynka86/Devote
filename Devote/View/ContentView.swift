@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
     // MARK: - PROPERTY
     
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var task: String = ""
     @State private var showNewTaskItem: Bool = false
     
@@ -66,8 +67,9 @@ struct ContentView: View {
                         // APPERANCE BUTTON
                         Button(action: {
                             // TOGGLE APPEARANCE
+                            isDarkMode.toggle()
                         }, label: {
-                            Image(systemName: "moon.circle")
+                            Image(systemName: isDarkMode ? "moon.circle.fill" : "moon.circle")
                                 .resizable()
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
