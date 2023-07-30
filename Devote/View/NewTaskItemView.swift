@@ -59,6 +59,7 @@ struct NewTaskItemView: View {
                     Button(action: {
                         addItem()
                         playSound(sound: "sound-ding", type: "mp3")
+                        feedback.notificationOccurred(.success)
                     }, label: {
                         Spacer()
                         Text("SAVE")
